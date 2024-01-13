@@ -2,6 +2,11 @@ package test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
+import org.eclipse.jdt.internal.compiler.ast.ThisReference;
+import test.Solution;
+
 
 public class main {
 
@@ -16,7 +21,7 @@ public class main {
 			}
 		}
 
-//		 1~10000 중 특정 숫자 갯수
+//		1~10000 중 특정 숫자 갯수
 		int[] numList = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		for (int k = 0; k < 10; k++) {
 			char numChar = Integer.toString(k).toCharArray()[0];
@@ -44,7 +49,7 @@ public class main {
 			}
 			list1.add(c);
 		}
-		System.out.println(list1);
+		System.out.println("피보나치(초항 "+ list1.get(0) + ", "+ list1.get(1) + ") : " + list1);
 		
 //		3의배수 && 5의배수
 		int a = 0;
@@ -69,7 +74,27 @@ public class main {
 				decimal_List.add(i);
 			}
 		}
-		System.out.println(decimal_List);
-	}
+		System.out.println("소수 : " + decimal_List);
+		
+//		문자열 뒤집기
+		String str = "abcd";
+		int len = str.length();
+		char[] charlist = str.toCharArray();
+		ArrayList<Character> new_charlist = new ArrayList<>();
+		for (int i = len -1; i>=0;i--) {
+			new_charlist.add(charlist[i]);
+		}
+		System.out.println("문자열 뒤집기 : " + new_charlist);
+		
+//		입력받기
+		System.out.println("숫자 2개를 입력하시오");
+		Scanner sc = new Scanner(System.in);
+		int sc1 = sc.nextInt();
+		int sc2 = sc.nextInt();
+		int sum_sc =sc1+sc2;
+		System.out.println("합: " + sum_sc);
+		
 
+	}
 }
+
