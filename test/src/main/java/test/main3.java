@@ -96,34 +96,68 @@ public class main3 {
 //		System.out.println(answer);
 ////////////////////////////
 //		큰수 찾기
-		int int1=100;
+		int int1=15;
+		System.out.println("int1 : " + int1);
 		String str1="0"+Integer.toBinaryString(int1);
+		int m1 =str1.replace("0", "").length();
 		String str2="";
 		String str3="";
 		int answer = 0;
-		System.out.println(str1);
-		for(int i=1;i<str1.length()-2;i++) {
+		int i1=0;
+		System.out.println("str1 : " + str1);
+		System.out.println("str1.length() : "+str1.length());
+		System.out.println("1갯수 : " + m1);
+		for(int i=0;i<str1.length();i++) {
 			if(str1.substring(str1.length()-i-2,str1.length()-i).equals("01")) {
-				str2=str1.substring(0,str1.length()-i-2)+"10";
-				int len1 = Integer.toString(Integer.parseInt(str1)).replace("0", "").length();
-				int len2 = Integer.toString(Integer.parseInt(str2)).replace("0", "").length();
-				for(int j=0;j<len1-len2;j++) {
-					str3 = str3 + "1";
-				}
-				for(int j=0;j<i-len1+len2;j++) {
-					str3 = "0" + str3;
-				}
-				str2 = str2 + str3;
+				i1=i;
+				System.out.println("str1.length()-i1 : " + (str1.length()-i1));
+				break;
 			}
 		}
-		answer = Integer.parseInt(str2, 2);
-
-//		System.out.println("len1 : " + len1 + ", len2 : " + len2);
-		System.out.println("int1 : " + Integer.toBinaryString(int1));
-		System.out.println("str2 : " + Integer.parseInt(str2));
-		
+		str2=str1.substring(0,str1.length()-i1-2) + "10";
+		System.out.println("str2 : " + str2);
+		m1=m1-str2.replace("0", "").length();
+		for(int i=0;i<i1;i++) {
+			if(m1>0) {
+				str3 = str3+1;
+				m1=m1-1;
+			} else {
+				str3 = 0+str3;
+			}
+		}
+		System.out.println("str3 : " + str3);
+		System.out.println("answer(2) : " + str2 + str3);
+		answer= Integer.parseInt(str2+str3,2);
 		System.out.println("answer : " + answer);
+//		answer = Integer.parseInt(str2, 2);
+//
+////		System.out.println("len1 : " + len1 + ", len2 : " + len2);
+//		System.out.println(int1);
+//		System.out.println("int1 : " + Integer.toBinaryString(int1));
+//		System.out.println("str2 : " + Integer.parseInt(str2));
+//		
+//		System.out.println("answer : " + answer);
+///////////////////////////////////////
 
-		
+////		System.out.println("//////////////////////////////////////////");
+//		
+//		int aaa1 = 1501111121;
+//		System.out.println("입력값 : " + aaa1);
+//		System.out.println("입력값2 : " + Integer.toBinaryString(aaa1));
+//		int p1=1;
+//		int answer = 0;
+//		for(int i=0;i<Integer.toBinaryString(aaa1).length();i++) {
+//			p1=p1*2;
+//		}
+////		System.out.println(p1);
+//		for(int i=aaa1+1;i<=aaa1+p1/2;i++) {
+//			if(Integer.toBinaryString(i).replace("0", "").length()==Integer.toBinaryString(aaa1).replace("0", "").length()) {
+//				answer=i;
+//				break;
+//			}
+//		}
+//		
+//		System.out.println("answer : " + answer);
+//		System.out.println("answer2 : " + Integer.toBinaryString(answer));
 	}
 }
