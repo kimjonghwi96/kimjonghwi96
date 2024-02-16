@@ -13,7 +13,7 @@ public class main3 {
 
 /////////////////////////////////////////////////////////////////////////////////
 //		이진변환
-		
+
 //		String s1 = "11011001101";
 //		int[] answer = new int[2];
 //		int cnt0 = 0;
@@ -95,40 +95,41 @@ public class main3 {
 //		}
 //		System.out.println(answer);
 ////////////////////////////
-//		큰수 찾기
-		int int1=15;
-		System.out.println("int1 : " + int1);
-		String str1="0"+Integer.toBinaryString(int1);
-		int m1 =str1.replace("0", "").length();
-		String str2="";
-		String str3="";
-		int answer = 0;
-		int i1=0;
-		System.out.println("str1 : " + str1);
-		System.out.println("str1.length() : "+str1.length());
-		System.out.println("1갯수 : " + m1);
-		for(int i=0;i<str1.length();i++) {
-			if(str1.substring(str1.length()-i-2,str1.length()-i).equals("01")) {
-				i1=i;
-				System.out.println("str1.length()-i1 : " + (str1.length()-i1));
-				break;
-			}
-		}
-		str2=str1.substring(0,str1.length()-i1-2) + "10";
-		System.out.println("str2 : " + str2);
-		m1=m1-str2.replace("0", "").length();
-		for(int i=0;i<i1;i++) {
-			if(m1>0) {
-				str3 = str3+1;
-				m1=m1-1;
-			} else {
-				str3 = 0+str3;
-			}
-		}
-		System.out.println("str3 : " + str3);
-		System.out.println("answer(2) : " + str2 + str3);
-		answer= Integer.parseInt(str2+str3,2);
-		System.out.println("answer : " + answer);
+////		큰수 찾기
+//		int int1=15;
+//		System.out.println("int1 : " + int1);
+//		String str1="0"+Integer.toBinaryString(int1);
+//		int m1 =str1.replace("0", "").length();
+//		String str2="";
+//		String str3="";
+//		int answer = 0;
+//		int i1=0;
+//		System.out.println("str1 : " + str1);
+//		System.out.println("str1.length() : "+str1.length());
+//		System.out.println("1갯수 : " + m1);
+//		for(int i=0;i<str1.length();i++) {
+//			if(str1.substring(str1.length()-i-2,str1.length()-i).equals("01")) {
+//				i1=i;
+//				System.out.println("str1.length()-i1 : " + (str1.length()-i1));
+//				break;
+//			}
+//		}
+//		str2=str1.substring(0,str1.length()-i1-2) + "10";
+//		System.out.println("str2 : " + str2);
+//		m1=m1-str2.replace("0", "").length();
+//		for(int i=0;i<i1;i++) {
+//			if(m1>0) {
+//				str3 = str3+1;
+//				m1=m1-1;
+//			} else {
+//				str3 = 0+str3;
+//			}
+//		}
+//		System.out.println("str3 : " + str3);
+//		System.out.println("answer(2) : " + str2 + str3);
+//		answer= Integer.parseInt(str2+str3,2);
+//		System.out.println("answer : " + answer);
+//////////////////////////////////
 //		answer = Integer.parseInt(str2, 2);
 //
 ////		System.out.println("len1 : " + len1 + ", len2 : " + len2);
@@ -159,5 +160,40 @@ public class main3 {
 //		
 //		System.out.println("answer : " + answer);
 //		System.out.println("answer2 : " + Integer.toBinaryString(answer));
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		String s = "baacbaa";
+		int answer = 1;
+		int cnt = 0;
+		String s2 = s;
+		while (!s.equals("")) {
+			char[] charArray = s.toCharArray();
+			for (int i = 0; i < s.length() - 1; i++) {
+				if (charArray[i] == charArray[i + 1]) {
+					charArray[i] = ' ';
+					charArray[i + 1] = ' ';
+					break;
+				}
+			}
+//			s="";
+//			for (int i = 0; i < charArray.length; i++) {
+//				if(charArray[i] != ' ') {
+//					s = s + charArray[i];
+//				}
+//			}
+			s=String.valueOf(charArray).replace(" ", "");
+			cnt = cnt + 1;
+			if (s2.length() == s.length()) {
+				answer = 0;
+				break;
+			}
+			s2 = s;
+		}
+
+		// [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
+		System.out.println("s : " + s);
+		System.out.println("cnt : " + cnt);
+		System.out.println("answer : " + answer);
+		
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 	}
 }
