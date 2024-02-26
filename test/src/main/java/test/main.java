@@ -36,21 +36,21 @@ public class main {
 //			System.out.println(numChar + " 갯수 : " + numList[k]);
 //		}
 //		
-////		피보나치 수열 출력
-//		ArrayList list1 = new ArrayList();
-//		list1.add(0,1);
-//		list1.add(1,2);
-//		
-//		//i+2개의 항, 10000미만
-//		for(int i=0;true;i++) {
-//			int c = (int)list1.get(i) + (int)list1.get(i+1);
-//			if(c>10000) {
-//				break;
-//			}
-//			list1.add(c);
-//		}
-//		System.out.println("피보나치(초항 "+ list1.get(0) + ", "+ list1.get(1) + ") : " + list1);
-//		
+//		피보나치 수열 출력
+		ArrayList list1 = new ArrayList();
+		list1.add(0,1);
+		list1.add(1,2);
+		
+		//i+2개의 항, 10000미만
+		for(int i=0;true;i++) {
+			int c = (int)list1.get(i) + (int)list1.get(i+1);
+			if(c>10000) {
+				break;
+			}
+			list1.add(c);
+		}
+		System.out.println("피보나치(초항 "+ list1.get(0) + ", "+ list1.get(1) + ") : " + list1);
+		
 ////		3의배수 && 5의배수
 //		int a = 0;
 //		for(int i=1;i<=1000;i++) {
