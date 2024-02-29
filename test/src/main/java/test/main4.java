@@ -40,25 +40,57 @@ public class main4 {
 //		}
 //		System.out.println(c);
 ///////////////////////////////////////////////////////////////////////////
-		int[] people = { 70, 80, 50 };
-		int limit = 100;
-		int answer = 0;
-		Arrays.sort(people);
-		for (int i = people.length-1; i >= 0; i--) {
-			if (people[i] != 0) {
-				if ((limit - people[i]) >= 40) {
-					for (int j = 0; j < people.length-1; j++) {
-						if (people[i] + people[j] <= limit && people[j] != 0) {
-							people[j] = 0;
-							break;
-						}
-					}
-				}
-				people[i] = 0;
-				answer++;
+		// 보트 greedy 탐욕
+//		int[] people = { 50, 50, 70, 80 };
+//		int limit = 100;
+//		int answer = 0;
+//		Arrays.sort(people);
+//		int left = 0;
+//		int right = people.length - 1;
+//
+//		while (left <= right) {
+//			if (people[left] + people[right] <= limit) {
+//				right--;
+//				left++;
+//				answer++;
+//			} else {
+//				right--;
+//				answer++;
+//			}
+//		}
+//
+////		for (int i = people.length-1; i >= 0; i--) {
+////			if (people[i] != 0) {
+////				if ((limit - people[i]) >= 40) {
+////					for (int j = 0; j < people.length-1; j++) {
+////						if (people[i] + people[j] <= limit && people[j] != 0) {
+////							people[j] = 0;
+////							break;
+////						}
+////					}
+////				}
+////				people[i] = 0;
+////				answer++;
+////			}
+////		}
+//
+//		System.out.println(answer);
+
+////////////////////////////////////////////
+		int[] arr = { 2, 3, 4, 5 };
+		Arrays.sort(arr);
+		int answer=arr[arr.length-1];
+
+		int i1=0;
+		while(i1<arr.length-1) {
+			if (answer % arr[i1] != 0) {
+				answer = answer + arr[arr.length - 1];
+				i1=0;
+			} else {
+				i1++;
 			}
 		}
-
 		System.out.println(answer);
+
 	}
 }
