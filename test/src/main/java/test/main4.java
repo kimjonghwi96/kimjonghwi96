@@ -77,20 +77,43 @@ public class main4 {
 //		System.out.println(answer);
 
 ////////////////////////////////////////////
-		int[] arr = { 2, 3, 4, 5 };
-		Arrays.sort(arr);
-		int answer=arr[arr.length-1];
-
-		int i1=0;
-		while(i1<arr.length-1) {
-			if (answer % arr[i1] != 0) {
-				answer = answer + arr[arr.length - 1];
-				i1=0;
-			} else {
-				i1++;
+//		int[] arr = { 2, 3, 4, 5 };
+//		Arrays.sort(arr);
+//		int answer=arr[arr.length-1];
+//
+//		int i1=0;
+//		while(i1<arr.length-1) {
+//			if (answer % arr[i1] != 0) {
+//				answer = answer + arr[arr.length - 1];
+//				i1=0;
+//			} else {
+//				i1++;
+//			}
+//		}
+//		System.out.println(answer);
+/////////////////////////////////////////////////////
+//		int a = 3;
+//		int b = 6;
+//		System.out.println(Integer.toBinaryString(a^b));
+////		System.out.println(3^6);
+///////////////////////////////////////////////////////
+//		멀리뛰기
+		int n = 10;
+		int N = n / 2;
+		long sum = 0;
+		for (int i = 0; i <= N; i++) {
+			long a1 = 1;
+			for (int j = 1; j < i + 1
+//					여기 고쳐야 됨!!!!!
+//					&& j < n-i-j+1
+					; j++) {
+				a1 = a1 * (n - i - j + 1) / j;
 			}
+			System.out.println((n - i) + " C " + i + " = " + a1);
+			sum = sum + a1;
 		}
-		System.out.println(answer);
+		sum = sum % 1234567;
+		System.out.println(sum);
 
 	}
 }
