@@ -98,21 +98,21 @@ public class main4 {
 ////		System.out.println(3^6);
 ///////////////////////////////////////////////////////
 //		멀리뛰기
-		int n = 10;
+//		피보나치
+		int n = 4;
 		int N = n / 2;
 		long sum = 0;
 		for (int i = 0; i <= N; i++) {
 			long a1 = 1;
-			for (int j = 1; j < i + 1
-//					여기 고쳐야 됨!!!!!
-//					&& j < n-i-j+1
-					; j++) {
-				a1 = a1 * (n - i - j + 1) / j;
+			for (int j = 1; j <= i; j++) {
+				if(j>(n-2*i)) {
+					break;
+				}
+				a1 = a1  * (n - i - j + 1) / j;
 			}
+			sum = (sum % 1234567 + a1 % 1234567) % 1234567;
 			System.out.println((n - i) + " C " + i + " = " + a1);
-			sum = sum + a1;
 		}
-		sum = sum % 1234567;
 		System.out.println(sum);
 
 	}
