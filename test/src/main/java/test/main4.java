@@ -1,6 +1,9 @@
 package test;
 
 import java.util.Arrays;
+//import java.util.Collection;
+//import java.util.Collections;
+import java.util.HashMap;
 
 public class main4 {
 
@@ -249,62 +252,102 @@ public class main4 {
 //		}
 //		System.out.println();
 //		System.out.println("answer : " + answer);
-		
+
 //////////////////
+//		int[] tangerine = { 1, 3, 2, 5, 4, 5, 2, 3 };
+//		int k = 6;
+//		int[] a1 = new int[tangerine.length];
+//		int[] a2 = new int[tangerine.length];
+//		int answer = 0;
+//		Arrays.sort(tangerine);
+//		
+//		a1[0] = tangerine[0];
+//		
+//		for (int i = 0; i < tangerine.length - 1; i++) {
+//			for (int j = 0; j < tangerine.length; j++) {
+//				if (a1[i] == 0) {
+//					break;
+//				}
+//				if (tangerine[j] > a1[i]) {
+//					a1[i + 1] = tangerine[j];
+//					break;
+//				}
+//				if (a1[i] == tangerine[j]) {
+//					a2[i]++;
+//					tangerine[j] = -1;
+//				}
+//			}
+//		}
+//		if (a1[tangerine.length - 1] == tangerine[tangerine.length - 1]) {
+//			a2[tangerine.length - 1]++;
+//			tangerine[tangerine.length - 1] = -1;
+//		}
+//		for (int i = 0; i < a2.length; i++) {
+//			System.out.print("[" + a1[i] + ", " + a2[i] + "]");
+//		}
+//		System.out.println("\n-----------------------------------------------------");
+//		for (int i = 0; i < a1.length; i++) {
+//			System.out.print("[" + a1[i] + ", " + a2[i] + "]");
+//		}
+//		
+////		int[] b = new int[a2.length];
+////		for (int i = 0; i < a2.length; i++) {
+////			b[i] = a2[i];
+////		}
+//		Arrays.sort(a2);
+//		System.out.println();
+//		for (int i = 0; i < a2.length; i++) {
+//			System.out.print(a2[i] + ", ");
+//		}
+//		
+//		for (int i = a2.length - 1; i >= 0; i--) {
+//			if (k > 0) {
+//				k = k - a2[i];
+//				answer++;
+//			}
+//		}
+//		System.out.println();
+//		System.out.println("answer : " + answer);
+//////////////////////////////////////
 		int[] tangerine = { 1, 3, 2, 5, 4, 5, 2, 3 };
 		int k = 6;
-		int[] a1 = new int[tangerine.length];
-		int[] a2 = new int[tangerine.length];
+
+//		Arrays.sort(tangerine);
+		HashMap<Integer, Integer> hm = new HashMap<>();
+
+//		int[] a1 = new int[tangerine.length];
+//		int[] a2 = new int[tangerine.length];
 		int answer = 0;
-		Arrays.sort(tangerine);
-		
-		a1[0] = tangerine[0];
-		
-		for (int i = 0; i < tangerine.length - 1; i++) {
-			for (int j = 0; j < tangerine.length; j++) {
-				if (a1[i] == 0) {
-					break;
-				}
-				if (tangerine[j] > a1[i]) {
-					a1[i + 1] = tangerine[j];
-					break;
-				}
-				if (a1[i] == tangerine[j]) {
-					a2[i]++;
-					tangerine[j] = -1;
-				}
+
+//		a1[0] = tangerine[0];
+//		hm.put(tangerine[0], 1);
+//		for (int i = 0; i < tangerine.length; i++) {
+//			System.out.println(tangerine[i]);
+//		}
+
+		for (int i = 0; i < tangerine.length; i++) {
+			if (hm.get(tangerine[i]) == null) {
+				hm.put(tangerine[i], 1);
+			} else {
+				hm.put(tangerine[i], hm.get(tangerine[i]) + 1);
 			}
 		}
-		if (a1[tangerine.length - 1] == tangerine[tangerine.length - 1]) {
-			a2[tangerine.length - 1]++;
-			tangerine[tangerine.length - 1] = -1;
-		}
-		for (int i = 0; i < a2.length; i++) {
-			System.out.print("[" + a1[i] + ", " + a2[i] + "]");
-		}
-		System.out.println("\n-----------------------------------------------------");
-		for (int i = 0; i < a1.length; i++) {
-			System.out.print("[" + a1[i] + ", " + a2[i] + "]");
-		}
-		
-//		int[] b = new int[a2.length];
-//		for (int i = 0; i < a2.length; i++) {
-//			b[i] = a2[i];
+
+//		System.out.println(hm);
+//		System.out.println(hm.values());
+
+		Integer[] intArray = hm.values().toArray(new Integer[0]);
+		Arrays.sort(intArray);
+//		for (int i = 0; i < intArray.length; i++) {
+//			System.out.println(intArray[i]);
 //		}
-		Arrays.sort(a2);
-		System.out.println();
-		for (int i = 0; i < a2.length; i++) {
-			System.out.print(a2[i] + ", ");
-		}
 		
-		for (int i = a2.length - 1; i >= 0; i--) {
+		for (int i = intArray.length-1; i >= 0; i--) {
 			if (k > 0) {
-				k = k - a2[i];
+				k = k - intArray[i];
 				answer++;
 			}
 		}
-		System.out.println();
 		System.out.println("answer : " + answer);
-
 	}
 }
